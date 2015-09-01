@@ -7,17 +7,18 @@
 
 import UIKit
 
-protocol ScrollBarControllerDelegate : class {
+public protocol ScrollBarControllerDelegate : class {
     func scrollBarController(scrollBarController: ScrollBarController,
         didSelectViewController viewController: UIViewController)
 }
 
-protocol ScrollBarController : ScrollBarDelegate {
+public protocol ScrollBarController : ScrollBarDelegate {
     var scrollBar: ScrollBar! { get }
     var selectedViewController: UIViewController! { get set }   //TODO: Remove setter
     weak var delegate: ScrollBarControllerDelegate? { get set }
-    
     var isTransitioningFromViewController: Bool { get set }
+    
+    //Override by extension
     func setViewControllers(viewControllers: [ScrollBarContentableController], animated: Bool)
 
     //From UIViewController
@@ -31,9 +32,13 @@ protocol ScrollBarController : ScrollBarDelegate {
     func addChildViewController(childController: ScrollBarContentableController)
 }
 
-extension ScrollBarController {
+public extension ScrollBarController {
 
     func setViewControllers(viewControllers:[ScrollBarContentableController], animated: Bool) {
+        if scrollBar.barDelegate == nil {
+            scrollBar.barDelegate = self    //Set once
+        }
+        
         for viewController in viewControllers {
             self.addChildViewController(viewController)
             self.didMoveToParentViewController(viewController)

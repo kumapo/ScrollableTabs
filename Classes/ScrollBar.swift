@@ -8,21 +8,21 @@
 import UIKit
 import BlocksKit
 
-protocol ScrollBarDelegate: class {
+public protocol ScrollBarDelegate: class {
     func scrollBar(scrollbar:ScrollBar, didSelectItem item:UIBarButtonItem!)
 }
 
 
 
-class ScrollBar: UIScrollView {
+public class ScrollBar: UIScrollView {
     lazy var toolbar: UIToolbar = {
         return ContentBar(frame: CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height))
     }()
 
-    weak var barDelegate: ScrollBarDelegate?
+    weak public var barDelegate: ScrollBarDelegate?
     
     private var _selectedItem: UIBarButtonItem?
-    var selectedItem: UIBarButtonItem {
+    public var selectedItem: UIBarButtonItem {
         set(selecting) {
             if !shouldSetSelectItem(selecting) {
                 return
@@ -50,7 +50,7 @@ class ScrollBar: UIScrollView {
         _init()
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         _init()
     }
@@ -67,7 +67,7 @@ class ScrollBar: UIScrollView {
         self.addSubview(self.toolbar)
     }
     
-    override func intrinsicContentSize() -> CGSize {
+    override public func intrinsicContentSize() -> CGSize {
         let width = self.bounds.size.width
         let hight = self.bounds.size.height
         return CGSize(width: width, height: hight)

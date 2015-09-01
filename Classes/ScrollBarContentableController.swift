@@ -8,10 +8,10 @@
 import UIKit
 
 //http://stackoverflow.com/questions/25214484
-protocol UIViewControllerInject {}
+public protocol UIViewControllerInject : class {}       //TODO: To be private
 extension UIViewController : UIViewControllerInject {}
 
-protocol ScrollBarContentableController : UIViewControllerInject {
+public protocol ScrollBarContentableController : UIViewControllerInject {
     var item: UIBarButtonItem! { get set }
     
 }
