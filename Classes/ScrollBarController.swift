@@ -14,7 +14,7 @@ public protocol ScrollBarControllerDelegate : class {
 
 public protocol ScrollBarController : ScrollBarDelegate {
     var scrollBar: ScrollBar! { get }
-    var selectedViewController: UIViewController! { get set }   //TODO: Remove setter
+    var selectedViewController: UIViewController! { get set }
     weak var delegate: ScrollBarControllerDelegate? { get set }
     var isTransitioningFromViewController: Bool { get set }
     
@@ -33,6 +33,7 @@ public protocol ScrollBarController : ScrollBarDelegate {
 }
 
 public extension ScrollBarController {
+    //TODO: Add setter and getter for selectedViewController using scrollbar
 
     func setViewControllers(viewControllers:[ScrollBarContentableController], animated: Bool) {
         if scrollBar.barDelegate == nil {

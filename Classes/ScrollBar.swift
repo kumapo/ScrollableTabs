@@ -21,9 +21,9 @@ public class ScrollBar: UIScrollView {
 
     weak public var barDelegate: ScrollBarDelegate?
     
-    private var _selectedItem: UIBarButtonItem?
+    private var _selectedItem: UIBarButtonItem? //TODO: Replace to selectedIndex
     public var selectedItem: UIBarButtonItem {
-        set(selecting) {
+        set(selecting) {    //TODO: Using selectedIndex
             if !shouldSetSelectItem(selecting) {
                 return
             }
