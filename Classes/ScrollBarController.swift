@@ -14,7 +14,6 @@ public protocol ScrollBarControllerDelegate : class {
 
 public protocol ScrollBarController : ScrollBarDelegate {
     var scrollBar: ScrollBar! { get }
-    var selectedViewController: UIViewController! { get set }
     var _selectedViewController: UIViewController! { get set }
     weak var delegate: ScrollBarControllerDelegate? { get set }
     var isTransitioningFromViewController: Bool { get set }
@@ -39,7 +38,10 @@ public extension ScrollBarController {
             return _selectedViewController
         }
         set {
-            _selectedViewController = newValue
+            if let contentController = newValue as? ScrollBarContentableController {
+                scrollBar.selectedItem = contentController.item
+                _selectedViewController = newValue
+            }
         }
     }
 
@@ -85,7 +87,6 @@ public extension ScrollBarController {
                     duration: NSTimeInterval(0), options: UIViewAnimationOptions(rawValue: 0),
                     animations: { [unowned self] (finished) -> Void in
                         //toViewController の viewWillAppear の実行が終わったあとに実行する
-                        scrollbar.selectedItem = item
                         self.selectedViewController = didSelectController!
                         
                         if self.delegate != nil {
