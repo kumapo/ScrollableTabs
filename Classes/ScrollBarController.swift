@@ -62,7 +62,7 @@ public extension ScrollBarController {
         scrollBar.setItems(items, animated: false)
     }
     
-    func scrollBar(scrollbar: ScrollBar, didSelectItem item: UIBarButtonItem!) {
+    func scrollBar(scrollbar: ScrollBar, willSelectItem item: UIBarButtonItem!) {
         var didSelectController: UIViewController? = nil
         for childController in self.childViewControllers {
             if let contentController = childController as? ScrollBarContentableController {

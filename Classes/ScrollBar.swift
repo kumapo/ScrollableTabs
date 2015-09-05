@@ -9,10 +9,8 @@ import UIKit
 import BlocksKit
 
 public protocol ScrollBarDelegate: class {
-    func scrollBar(scrollbar:ScrollBar, didSelectItem item:UIBarButtonItem!)
+    func scrollBar(scrollbar:ScrollBar, willSelectItem item:UIBarButtonItem!)
 }
-
-
 
 public class ScrollBar: UIScrollView {
     lazy var toolbar: UIToolbar = {
@@ -24,26 +22,25 @@ public class ScrollBar: UIScrollView {
     private var selectedIndex: Int?
     public var selectedItem: UIBarButtonItem {
         set(willSelectItem) {
-            if let index = indexWithItem(willSelectItem) {
-                if !shouldSelectIndex(index) {
-                    return
-                }
-                
-                //Deselect previous selected
-                if selectedIndex != nil {    //TODO: -1 as Not selected
-                    let button = selectedItem.customView as! UIButton
-                    button.selected = false
-                }
-                
-                //Select current selected
-                selectedIndex = index
-                if let button = willSelectItem.customView as? UIButton {
-                    button.selected = true
-                }
+            let index = indexWithItem(willSelectItem)
+            if !shouldSelectIndex(index) {
+                return
+            }
+            
+            //Deselect previous selected
+            if selectedIndex != nil {
+                let button = selectedItem.customView as! UIButton
+                button.selected = false
+            }
+            
+            //Select current selected
+            selectedIndex = index
+            if let button = willSelectItem.customView as? UIButton {
+                button.selected = true
             }
         }
         get {
-            return toolbar.items![selectedIndex!]
+            return itemWithIndex(selectedIndex!)
         }
     }
     
@@ -91,25 +88,24 @@ public class ScrollBar: UIScrollView {
         if let items = self.toolbar.items {
             for var i = 0; i < items.count; i++ {
                 if let button = items[i].customView as? UIButton {
-                    let index = i                                       //クロージャを宣言したときの値を退避しておく
+                    let index = i                   //クロージャを宣言したときの値を退避しておく
                     button.bk_addEventHandler({ [unowned self] (_) -> Void in
-                        self.didSelectItem(items[index], index: index)  //宣言時の値をつかう
+                        self.willSelectIndex(index)  //宣言時の値をつかう
                     }, forControlEvents: .TouchUpInside)
                 }
             }
         }
     }
     
-    //TODO: To be single argument
-    private func didSelectItem(item: UIBarButtonItem, index: Int) {
+    private func willSelectIndex(index: Int) {
         if self.barDelegate == nil {
             return
         }
         if !shouldSelectIndex(index) {
             return
         }
-        
-        self.barDelegate!.scrollBar(self, didSelectItem: item)
+        let willSelectItem = itemWithIndex(index)
+        self.barDelegate!.scrollBar(self, willSelectItem: willSelectItem)
     }
     
     private func shouldSelectIndex(index: Int) -> Bool {
@@ -119,14 +115,19 @@ public class ScrollBar: UIScrollView {
         return false
     }
     
-    private func indexWithItem(item: UIBarButtonItem) -> Int? {
-        if let items = self.toolbar.items {
-            for var i = 0; i < items.count; i++ {
-                if item == items[i] {
-                    return i
-                }
+    private func indexWithItem(item: UIBarButtonItem) -> Int {
+        var index = -1
+        let items = self.toolbar.items!
+        for var i = 0; i < items.count; i++ {
+            if item == items[i] {
+                index = i
+                break
             }
         }
-        return nil
+        return index
+    }
+    
+    private func itemWithIndex(index: Int) -> UIBarButtonItem {
+        return toolbar.items![index]
     }
 }
