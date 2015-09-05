@@ -91,8 +91,9 @@ public class ScrollBar: UIScrollView {
         if let items = self.toolbar.items {
             for var i = 0; i < items.count; i++ {
                 if let button = items[i].customView as? UIButton {
+                    let index = i                                       //クロージャを宣言したときの値を退避しておく
                     button.bk_addEventHandler({ [unowned self] (_) -> Void in
-                        self.didSelectItem(items[i], index: i)
+                        self.didSelectItem(items[index], index: index)  //宣言時の値をつかう
                     }, forControlEvents: .TouchUpInside)
                 }
             }
