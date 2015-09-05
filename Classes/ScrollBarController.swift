@@ -56,8 +56,10 @@ public extension ScrollBarController {
         }
         
         var items: [UIBarButtonItem] = []
-        for viewController in viewControllers {
-            items.append(viewController.item)
+        for childController in childViewControllers {
+            //childViewController が ScrollBarContentableController でないときは例外にする
+            let contentController = childController as! ScrollBarContentableController
+            items.append(contentController.item)
         }
         scrollBar.setItems(items, animated: false)
     }
