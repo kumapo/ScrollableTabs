@@ -65,16 +65,7 @@ public extension ScrollBarController {
     }
     
     func scrollBar(scrollbar: ScrollBar, willSelectItem item: UIBarButtonItem!) {
-        var didSelectController: UIViewController? = nil
-        for childController in self.childViewControllers {
-            if let contentController = childController as? ScrollBarContentableController {
-                if contentController.item == item {
-                    didSelectController = childController
-                    break
-                }
-            }
-        }
-        
+        let didSelectController = viewControllerWithItem(item)
         
         if let toViewController = didSelectController {
             if selectedViewController != toViewController {
@@ -104,6 +95,18 @@ public extension ScrollBarController {
         
     }
     
+    private func viewControllerWithItem(item: UIBarButtonItem) -> UIViewController? {
+        var viewController: UIViewController?
+        for childController in self.childViewControllers {
+            let contentController = childController as! ScrollBarContentableController
+            if contentController.item == item {
+                viewController = childController
+                break
+            }
+        }
+        return viewController
+    }
+    
     func addChildViewController(childController: ScrollBarContentableController) {
         self.addChildViewController(childController as! UIViewController)
     }
@@ -111,4 +114,5 @@ public extension ScrollBarController {
     func didMoveToParentViewController(parent: ScrollBarContentableController?) {
         self.didMoveToParentViewController(parent as! UIViewController?)
     }
+
 }
