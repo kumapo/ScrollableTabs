@@ -14,7 +14,6 @@ public protocol ScrollBarControllerDelegate : class {
 
 public protocol ScrollBarController : ScrollBarDelegate {
     var scrollBar: ScrollBar! { get }
-    var _selectedViewController: UIViewController! { get set }
     weak var delegate: ScrollBarControllerDelegate? { get set }
     var isTransitioningFromViewController: Bool { get set }
     
@@ -35,13 +34,11 @@ public protocol ScrollBarController : ScrollBarDelegate {
 public extension ScrollBarController {
     var selectedViewController: UIViewController {
         get {
-            return _selectedViewController
+            return viewControllerWithItem(scrollBar.selectedItem)!
         }
         set {
-            if let contentController = newValue as? ScrollBarContentableController {
-                scrollBar.selectedItem = contentController.item
-                _selectedViewController = newValue
-            }
+            let contentController = newValue as! ScrollBarContentableController
+            scrollBar.selectedItem = contentController.item
         }
     }
 
@@ -98,6 +95,7 @@ public extension ScrollBarController {
     private func viewControllerWithItem(item: UIBarButtonItem) -> UIViewController? {
         var viewController: UIViewController?
         for childController in self.childViewControllers {
+            //childViewController が ScrollBarContentableController でないときは例外にする
             let contentController = childController as! ScrollBarContentableController
             if contentController.item == item {
                 viewController = childController
