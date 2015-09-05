@@ -1,5 +1,5 @@
 //
-//  ScrollBarController.swift
+//  ScrollableTabBarController.swift
 //  ScrollableTabBar
 //
 //  Created by kumapo on 2015/08/23.
@@ -7,15 +7,15 @@
 
 import UIKit
 
-public protocol ScrollBarControllerDelegate : class {
-    func scrollBarController(scrollBarController: ScrollBarController,
+public protocol ScrollableTabBarControllerDelegate : class {
+    func scrollBarController(scrollBarController: ScrollableTabBarController,
         didSelectViewController viewController: UIViewController)
 }
 
-public protocol ScrollBarController : ScrollableTabBarDelegate {
+public protocol ScrollableTabBarController : ScrollableTabBarDelegate {
     var scrollBar: ScrollableTabBar! { get }
     var isTransitioningFromViewController: Bool { get set }
-    weak var delegate: ScrollBarControllerDelegate? { get set }
+    weak var delegate: ScrollableTabBarControllerDelegate? { get set }
 
     //Override by extension
     func setViewControllers(viewControllers: [ScrollBarContentableController], animated: Bool)
@@ -31,7 +31,7 @@ public protocol ScrollBarController : ScrollableTabBarDelegate {
     func addChildViewController(childController: ScrollBarContentableController)
 }
 
-public extension ScrollBarController {
+public extension ScrollableTabBarController {
     var selectedViewController: UIViewController {
         get {
             return viewControllerWithItem(scrollBar.selectedItem)!
