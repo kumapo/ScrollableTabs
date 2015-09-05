@@ -1,5 +1,5 @@
 //
-//  ScrollBar.swift
+//  ScrollableTabBar.swift
 //  ScrollableTabBar
 //
 //  Created by kumapo on 2015/08/11.
@@ -8,16 +8,16 @@
 import UIKit
 import BlocksKit
 
-public protocol ScrollBarDelegate: class {
-    func scrollBar(scrollbar:ScrollBar, willSelectItem item:UIBarButtonItem!)
+public protocol ScrollableTabBarDelegate: class {
+    func scrollBar(scrollbar:ScrollableTabBar, willSelectItem item:UIBarButtonItem!)
 }
 
-public class ScrollBar: UIScrollView {
+public class ScrollableTabBar: UIScrollView {
     lazy var toolbar: UIToolbar = {
         return ContentBar(frame: CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height))
     }()
 
-    weak public var barDelegate: ScrollBarDelegate?
+    weak public var barDelegate: ScrollableTabBarDelegate?
     
     private var selectedIndex: Int?
     public var selectedItem: UIBarButtonItem {

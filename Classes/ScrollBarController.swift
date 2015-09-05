@@ -12,11 +12,11 @@ public protocol ScrollBarControllerDelegate : class {
         didSelectViewController viewController: UIViewController)
 }
 
-public protocol ScrollBarController : ScrollBarDelegate {
-    var scrollBar: ScrollBar! { get }
-    weak var delegate: ScrollBarControllerDelegate? { get set }
+public protocol ScrollBarController : ScrollableTabBarDelegate {
+    var scrollBar: ScrollableTabBar! { get }
     var isTransitioningFromViewController: Bool { get set }
-    
+    weak var delegate: ScrollBarControllerDelegate? { get set }
+
     //Override by extension
     func setViewControllers(viewControllers: [ScrollBarContentableController], animated: Bool)
 
@@ -61,7 +61,7 @@ public extension ScrollBarController {
         scrollBar.setItems(items, animated: false)
     }
     
-    func scrollBar(scrollbar: ScrollBar, willSelectItem item: UIBarButtonItem!) {
+    func scrollBar(scrollbar: ScrollableTabBar, willSelectItem item: UIBarButtonItem!) {
         let didSelectController = viewControllerWithItem(item)
         
         if let toViewController = didSelectController {
