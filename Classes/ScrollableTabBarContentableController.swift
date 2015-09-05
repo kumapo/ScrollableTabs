@@ -1,5 +1,5 @@
 //
-//  ScrollBarContentableController.swift
+//  ScrollableTabBarContentableController.swift
 //  ScrollableTabBar
 //
 //  Created by kumapo on 2015/08/25.
@@ -11,7 +11,7 @@ import UIKit
 public protocol UIViewControllerInject : class {}       //TODO: To be private
 extension UIViewController : UIViewControllerInject {}
 
-public protocol ScrollBarContentableController : UIViewControllerInject {
+public protocol ScrollableTabBarContentableController : UIViewControllerInject {
     var item: UIBarButtonItem! { get set }
     
 }
