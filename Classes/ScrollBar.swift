@@ -21,27 +21,29 @@ public class ScrollBar: UIScrollView {
 
     weak public var barDelegate: ScrollBarDelegate?
     
-    private var _selectedItem: UIBarButtonItem? //TODO: Replace to selectedIndex
+    private var selectedIndex: Int?
     public var selectedItem: UIBarButtonItem {
-        set(selecting) {    //TODO: Using selectedIndex
-            if !shouldSetSelectItem(selecting) {
-                return
-            }
-            
-            //Deselect previous selected
-            if _selectedItem != nil {
-                let button = _selectedItem!.customView as! UIButton
-                button.selected = false
-            }
-            
-            //Select current selected
-            _selectedItem = selecting
-            if let button = selecting.customView as? UIButton {
-                button.selected = true
+        set(willSelectItem) {
+            if let index = indexWithItem(willSelectItem) {
+                if !shouldSelectIndex(index) {
+                    return
+                }
+                
+                //Deselect previous selected
+                if selectedIndex != nil {    //TODO: -1 as Not selected
+                    let button = selectedItem.customView as! UIButton
+                    button.selected = false
+                }
+                
+                //Select current selected
+                selectedIndex = index
+                if let button = willSelectItem.customView as? UIButton {
+                    button.selected = true
+                }
             }
         }
         get {
-            return _selectedItem!
+            return toolbar.items![selectedIndex!]
         }
     }
     
@@ -87,33 +89,43 @@ public class ScrollBar: UIScrollView {
     
     private func addActionToItems() {
         if let items = self.toolbar.items {
-            for item in items {
-                if let button = item.customView as? UIButton {
+            for var i = 0; i < items.count; i++ {
+                if let button = items[i].customView as? UIButton {
                     button.bk_addEventHandler({ [unowned self] (_) -> Void in
-                        self.didSelectItem(item)
+                        self.didSelectItem(items[i], index: i)
                     }, forControlEvents: .TouchUpInside)
                 }
             }
         }
     }
     
-    private func didSelectItem(item: UIBarButtonItem) {
+    //TODO: To be single argument
+    private func didSelectItem(item: UIBarButtonItem, index: Int) {
         if self.barDelegate == nil {
             return
         }
-        if !shouldSetSelectItem(item) {
+        if !shouldSelectIndex(index) {
             return
         }
         
         self.barDelegate!.scrollBar(self, didSelectItem: item)
     }
     
-    private func shouldSetSelectItem(item: UIBarButtonItem?) -> Bool {
-        if item != nil && item != _selectedItem {
+    private func shouldSelectIndex(index: Int) -> Bool {
+        if index != selectedIndex {
             return true
         }
         return false
     }
     
-    
+    private func indexWithItem(item: UIBarButtonItem) -> Int? {
+        if let items = self.toolbar.items {
+            for var i = 0; i < items.count; i++ {
+                if item == items[i] {
+                    return i
+                }
+            }
+        }
+        return nil
+    }
 }
