@@ -46,6 +46,10 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="containerView" destination="bw9-AQ-1tx" id="Ezj-xm-cSe"/>
+                        <outlet property="scrollBar" destination="xVn-W3-Rjf" id="Km5-iJ-B9Y"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>

@@ -12,19 +12,16 @@ import ScrollableTabs
 class ViewController: UIViewController, ScrollableTabBarController, ScrollableTabBarControllerDelegate {
     
     //Protocol Methods
-    var scrollBar: ScrollableTabBar!
+    @IBOutlet weak var scrollBar: ScrollableTabBar!
     weak var delegate: ScrollableTabBarControllerDelegate?
     var isTransitioningFromViewController: Bool = false
     
-    var containerView: UIView!
+    @IBOutlet weak var containerView: UIView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view, typically from a nib.
-        self.scrollBar = self.view.viewWithTag(100) as! ScrollableTabBar
-        self.containerView = self.view.viewWithTag(101)!
-        
+        // Do any additional setup after loading the view, typically from a nib.        
         configureChildViewControllers()
     }
 
