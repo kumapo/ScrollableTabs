@@ -22,7 +22,6 @@ class ViewController: UIViewController, ScrollableTabBarController, ScrollableTa
         super.viewDidLoad()
         
         // Do any additional setup after loading the view, typically from a nib.
-        
         self.scrollBar = self.view.viewWithTag(100) as! ScrollableTabBar
         self.containerView = self.view.viewWithTag(101)!
         
@@ -35,12 +34,13 @@ class ViewController: UIViewController, ScrollableTabBarController, ScrollableTa
     }
 
     func configureChildViewControllers() {
-        let childViewController = ChildViewController()
+        let firstChildViewController = ChildViewController()
         
-        setViewControllers([childViewController], animated: false)
+        setViewControllers([firstChildViewController, AnotherChildViewController(), ChildViewController(),
+            AnotherChildViewController(), ChildViewController(), AnotherChildViewController(),
+            ChildViewController(), AnotherChildViewController()], animated: false)
+        selectedViewController = firstChildViewController
         self.delegate = self
-
-        selectedViewController = childViewController
         
         self.containerView.addSubview(selectedViewController.view)
         updateSelectedViewConstraints()
