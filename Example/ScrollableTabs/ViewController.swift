@@ -24,20 +24,20 @@ class ViewController: UIViewController, ScrollableTabBarController, ScrollableTa
         // Do any additional setup after loading the view, typically from a nib.
         
         self.scrollBar = self.view.viewWithTag(100) as! ScrollableTabBar
-//        self.containerView = self.view.viewWithTag(101)!
+        self.containerView = self.view.viewWithTag(101)!
         
-//        configureChildViewControllers()
+        configureChildViewControllers()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-/*
+
     func configureChildViewControllers() {
-        let childViewController = ChildViewController(), anotherViewController = AnotherChildViewController()
+        let childViewController = ChildViewController()
         
-        setViewControllers([childViewController, anotherViewController], animated: false)
+        setViewControllers([childViewController], animated: false)
         self.delegate = self
 
         selectedViewController = childViewController
@@ -45,7 +45,7 @@ class ViewController: UIViewController, ScrollableTabBarController, ScrollableTa
         self.containerView.addSubview(selectedViewController.view)
         updateSelectedViewConstraints()
     }
-*/
+
     func updateSelectedViewConstraints() {
         let viewDictionary = [ "contentView": self.selectedViewController.view ]
         let horizontalConstraints = NSLayoutConstraint.constraintsWithVisualFormat("H:|[contentView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDictionary)

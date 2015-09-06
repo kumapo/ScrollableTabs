@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		54ADF5471B9C606C0024B28D /* ChildViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54ADF5461B9C606C0024B28D /* ChildViewController.swift */; };
 		54C4E28A1B9C480C0081EDF3 /* tabKbPlusD@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 54C4E2861B9C480C0081EDF3 /* tabKbPlusD@2x.png */; };
 		54C4E28B1B9C480C0081EDF3 /* tabKbPlusE@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 54C4E2871B9C480C0081EDF3 /* tabKbPlusE@2x.png */; };
 		54C4E28C1B9C480C0081EDF3 /* tabNumD@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 54C4E2881B9C480C0081EDF3 /* tabNumD@2x.png */; };
@@ -35,6 +36,7 @@
 		1389854956F01F705984157D /* Pods-ScrollableTabs_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScrollableTabs_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-ScrollableTabs_Example/Pods-ScrollableTabs_Example.release.xcconfig"; sourceTree = "<group>"; };
 		1AAB619C158F46EA7CA8F217 /* ScrollableTabs.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = ScrollableTabs.podspec; path = ../ScrollableTabs.podspec; sourceTree = "<group>"; };
 		3F0BAAAAD6EFF202EE27CFED /* Pods_ScrollableTabs_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ScrollableTabs_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		54ADF5461B9C606C0024B28D /* ChildViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChildViewController.swift; sourceTree = "<group>"; };
 		54C4E2861B9C480C0081EDF3 /* tabKbPlusD@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabKbPlusD@2x.png"; sourceTree = "<group>"; };
 		54C4E2871B9C480C0081EDF3 /* tabKbPlusE@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabKbPlusE@2x.png"; sourceTree = "<group>"; };
 		54C4E2881B9C480C0081EDF3 /* tabNumD@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabNumD@2x.png"; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 		607FACD21AFB9204008FA782 /* Example for ScrollableTabs */ = {
 			isa = PBXGroup;
 			children = (
+				54ADF5461B9C606C0024B28D /* ChildViewController.swift */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
 				54C4E2861B9C480C0081EDF3 /* tabKbPlusD@2x.png */,
@@ -377,6 +380,7 @@
 			files = (
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
+				54ADF5471B9C606C0024B28D /* ChildViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
