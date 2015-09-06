@@ -5,6 +5,10 @@
 [![License](https://img.shields.io/cocoapods/l/ScrollableTabs.svg?style=flat)](http://cocoapods.org/pods/ScrollableTabs)
 [![Platform](https://img.shields.io/cocoapods/p/ScrollableTabs.svg?style=flat)](http://cocoapods.org/pods/ScrollableTabs)
 
+## Screenshots
+
+![Screenshots_1](https://github.com/kumapo/ScrollableTabs/raw/screenshots/screenshots_1.gif)
+
 ## Usage
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
