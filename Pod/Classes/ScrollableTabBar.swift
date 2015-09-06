@@ -1,6 +1,6 @@
 //
 //  ScrollableTabBar.swift
-//  ScrollableTabBar
+//  ScrollableTabs
 //
 //  Created by kumapo on 2015/08/11.
 //
@@ -44,7 +44,7 @@ public class ScrollableTabBar: UIScrollView {
         }
     }
     
-    private override init(frame: CGRect) {
+    public override init(frame: CGRect) {
         super.init(frame: frame)
         _init()
     }

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		54C4E28A1B9C480C0081EDF3 /* tabKbPlusD@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 54C4E2861B9C480C0081EDF3 /* tabKbPlusD@2x.png */; };
+		54C4E28B1B9C480C0081EDF3 /* tabKbPlusE@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 54C4E2871B9C480C0081EDF3 /* tabKbPlusE@2x.png */; };
+		54C4E28C1B9C480C0081EDF3 /* tabNumD@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 54C4E2881B9C480C0081EDF3 /* tabNumD@2x.png */; };
+		54C4E28D1B9C480C0081EDF3 /* tabNumE@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 54C4E2891B9C480C0081EDF3 /* tabNumE@2x.png */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
@@ -31,6 +35,10 @@
 		1389854956F01F705984157D /* Pods-ScrollableTabs_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScrollableTabs_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-ScrollableTabs_Example/Pods-ScrollableTabs_Example.release.xcconfig"; sourceTree = "<group>"; };
 		1AAB619C158F46EA7CA8F217 /* ScrollableTabs.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = ScrollableTabs.podspec; path = ../ScrollableTabs.podspec; sourceTree = "<group>"; };
 		3F0BAAAAD6EFF202EE27CFED /* Pods_ScrollableTabs_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ScrollableTabs_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		54C4E2861B9C480C0081EDF3 /* tabKbPlusD@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabKbPlusD@2x.png"; sourceTree = "<group>"; };
+		54C4E2871B9C480C0081EDF3 /* tabKbPlusE@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabKbPlusE@2x.png"; sourceTree = "<group>"; };
+		54C4E2881B9C480C0081EDF3 /* tabNumD@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabNumD@2x.png"; sourceTree = "<group>"; };
+		54C4E2891B9C480C0081EDF3 /* tabNumE@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabNumE@2x.png"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* ScrollableTabs_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScrollableTabs_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -104,6 +112,10 @@
 			children = (
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
+				54C4E2861B9C480C0081EDF3 /* tabKbPlusD@2x.png */,
+				54C4E2871B9C480C0081EDF3 /* tabKbPlusE@2x.png */,
+				54C4E2881B9C480C0081EDF3 /* tabNumD@2x.png */,
+				54C4E2891B9C480C0081EDF3 /* tabNumE@2x.png */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
@@ -248,7 +260,11 @@
 			files = (
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
+				54C4E28B1B9C480C0081EDF3 /* tabKbPlusE@2x.png in Resources */,
+				54C4E28A1B9C480C0081EDF3 /* tabKbPlusD@2x.png in Resources */,
+				54C4E28C1B9C480C0081EDF3 /* tabNumD@2x.png in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
+				54C4E28D1B9C480C0081EDF3 /* tabNumE@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

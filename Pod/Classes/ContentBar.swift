@@ -1,6 +1,6 @@
 //
 //  ContentBar.swift
-//  ScrollableTabBar
+//  ScrollableTabs
 //
 //  Created by kumapo on 2015/08/17.
 //
