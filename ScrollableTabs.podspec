@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = "ScrollableTabs"
-  s.version          = "0.1.0"
-  s.summary          = "Simple Scrollable TabBar for iOS written in Swift"
+  s.version          = "0.1.1"
+  s.summary          = "Clean Scrollable TabBar for iOS written in Swift2"
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -37,5 +37,6 @@ Simple Scrollable TabBar for iOS written in Swift.
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
-  s.dependency 'BlocksKit', '~> 2.2.5'
+  s.dependency 'RxSwift', '~> 2.0.0-beta'
+  s.dependency 'RxCocoa', '~> 2.0.0-beta'
 end

@@ -1,27 +1,12 @@
 PODS:
-  - BlocksKit (2.2.5):
-    - BlocksKit/All (= 2.2.5)
-  - BlocksKit/All (2.2.5):
-    - BlocksKit/Core
-    - BlocksKit/DynamicDelegate
-    - BlocksKit/MessageUI
-    - BlocksKit/UIKit
-  - BlocksKit/Core (2.2.5)
-  - BlocksKit/DynamicDelegate (2.2.5)
-  - BlocksKit/MessageUI (2.2.5):
-    - BlocksKit/Core
-    - BlocksKit/DynamicDelegate
-  - BlocksKit/UIKit (2.2.5):
-    - BlocksKit/Core
-    - BlocksKit/DynamicDelegate
-  - Nimble (2.0.0-rc.3)
-  - Quick (0.6.0)
-  - ScrollableTabs (0.1.0):
-    - BlocksKit (~> 2.2.5)
+  - RxCocoa (2.0.0-beta.1):
+    - RxSwift (~> 2.0.0-beta)
+  - RxSwift (2.0.0-beta.1)
+  - ScrollableTabs (0.1.1):
+    - RxCocoa (~> 2.0.0-beta)
+    - RxSwift (~> 2.0.0-beta)
 
 DEPENDENCIES:
-  - Nimble (= 2.0.0-rc.3)
-  - Quick (~> 0.6.0)
   - ScrollableTabs (from `../`)
 
 EXTERNAL SOURCES:
@@ -29,9 +14,8 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  BlocksKit: 7f422b971407001178d181a43b99014ea2591fe6
-  Nimble: 9dff98ee195ffe7351d3b2fb01d3a1420fd97948
-  Quick: 563686dbcf0ae0f9f7401ac9cd2d786ee1b7f3d7
-  ScrollableTabs: decff8642ff445239d698297cff54a2a46f10d34
+  RxCocoa: a3c35a39c3b4e8175f271bd3a28be8ca52f97c93
+  RxSwift: a9b0f4d876eac130cda0ae2f3fba627be3baf3ef
+  ScrollableTabs: ea1ae2222e63c48647dd92e06ab06fab8c838e36
 
-COCOAPODS: 0.38.2
+COCOAPODS: 0.39.0

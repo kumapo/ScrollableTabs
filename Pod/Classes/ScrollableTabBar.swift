@@ -6,7 +6,8 @@
 //
 
 import UIKit
-import BlocksKit
+import RxSwift
+import RxCocoa
 
 public protocol ScrollableTabBarDelegate: class {
     func scrollBar(scrollbar:ScrollableTabBar, willSelectItem item:UIBarButtonItem!)
@@ -43,6 +44,8 @@ public class ScrollableTabBar: UIScrollView {
             return itemWithIndex(selectedIndex!)
         }
     }
+    
+    private var disposeBag = DisposeBag()
     
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -89,9 +92,9 @@ public class ScrollableTabBar: UIScrollView {
             for var i = 0; i < items.count; i++ {
                 if let button = items[i].customView as? UIButton {
                     let index = i                   //クロージャを宣言したときの値を退避しておく
-                    button.bk_addEventHandler({ [unowned self] (_) -> Void in
-                        self.willSelectIndex(index)  //宣言時の値をつかう
-                    }, forControlEvents: .TouchUpInside)
+                    button.rx_tap.subscribeNext { [unowned self] _ in
+                        self.willSelectIndex(index) //宣言時の値をつかう
+                    } .addDisposableTo(disposeBag)
                 }
             }
         }
