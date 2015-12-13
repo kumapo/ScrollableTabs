@@ -12,6 +12,7 @@ public protocol UIViewControllerInject : class {}       //TODO: To be private
 extension UIViewController : UIViewControllerInject {}
 
 public protocol ScrollableTabBarContentableController : UIViewControllerInject {
-    var item: UIBarButtonItem! { get set }
+    var item: UIBarButtonItem { get set }   //setViewControllers(:animated:)の時点で
+                                            //childViewController は初期化済みの item を持つことが前提
     
 }
