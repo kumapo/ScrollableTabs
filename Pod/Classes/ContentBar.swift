@@ -31,9 +31,9 @@ class ContentBar: UIToolbar {
     }
     
     override func sizeThatFits(size: CGSize) -> CGSize {
-        let baseSize = super.sizeThatFits(size)
+//        let baseSize = super.sizeThatFits(size)   //Not to change height to super calcurates
         let trailingView = self.subviews.last!
         return CGSize(width: trailingView.frame.origin.x + trailingView.frame.size.width + TrailingMarginToToolBar,
-            height: baseSize.height)
+            height: bounds.height)                  //Keep height when initialized
     }
 }
