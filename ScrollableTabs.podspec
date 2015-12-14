@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
 #   * Write the description between the DESC delimiters below.
 #   * Finally, don't worry about the indent, CocoaPods strips it!  
   s.description      = <<-DESC
-Simple Scrollable TabBar for iOS written in Swift.
+Clean Scrollable TabBar for iOS written in Swift2.
                        DESC
 
   s.homepage         = "https://github.com/kumapo/ScrollableTabs"
@@ -37,6 +37,6 @@ Simple Scrollable TabBar for iOS written in Swift.
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
-  s.dependency 'RxSwift', '~> 2.0.0-beta'
-  s.dependency 'RxCocoa', '~> 2.0.0-beta'
+  s.dependency 'RxSwift', '~> 2.0.0-beta.4'
+  s.dependency 'RxCocoa', '~> 2.0.0-beta.4'
 end
