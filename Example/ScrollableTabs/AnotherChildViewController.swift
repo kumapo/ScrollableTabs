@@ -10,7 +10,7 @@ import UIKit
 import ScrollableTabs
 
 class AnotherChildViewController: UIViewController, ScrollableTabBarContentableController {
-    lazy var item: UIBarButtonItem! = {
+    lazy var item: UIBarButtonItem = {
         let content = UIButton(type: .Custom)
         content.frame = CGRect(x: 0, y: 0, width: 60, height: 60)
         content.setImage(UIImage(named: "tabKbPlusD"), forState: .Normal)
@@ -36,7 +36,7 @@ class AnotherChildViewController: UIViewController, ScrollableTabBarContentableC
 
         // Do any additional setup after loading the view.
         self.view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = UIColor.redColor()
+        view.backgroundColor = UIColor.darkGrayColor()
     }
     
     override func didReceiveMemoryWarning() {
