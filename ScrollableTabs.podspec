@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = "ScrollableTabs"
   s.version          = "0.1.1"
-  s.summary          = "Scrollable TabBar written in Swift2"
+  s.summary          = "Protocol-oriented Scrollable TabBar written in Swift2"
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
 #   * Write the description between the DESC delimiters below.
 #   * Finally, don't worry about the indent, CocoaPods strips it!  
   s.description      = <<-DESC
-Scrollable TabBar written in Swift2.
+Protocol-oriented Scrollable TabBar written in Swift2.
                        DESC
 
   s.homepage         = "https://github.com/kumapo/ScrollableTabs"
@@ -30,13 +30,13 @@ Scrollable TabBar written in Swift2.
   s.platform     = :ios, '8.0'
   s.requires_arc = true
 
-  s.source_files = 'Pod/Classes/**/*'
+  s.source_files = 'ScrollableTabs/Classes/**/*'
   s.resource_bundles = {
-    'ScrollableTabs' => ['Pod/Assets/*.png']
+    'ScrollableTabs' => ['ScrollableTabs/Assets/*.png']
   }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
-  s.dependency 'RxSwift', '~> 2.1.0'
-  s.dependency 'RxCocoa', '~> 2.1.0'
+  s.dependency 'RxSwift', '~> 2.1'
+  s.dependency 'RxCocoa', '~> 2.1'
 end
