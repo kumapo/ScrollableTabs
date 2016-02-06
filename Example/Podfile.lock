@@ -1,10 +1,10 @@
 PODS:
-  - RxCocoa (2.0.0-beta.1):
-    - RxSwift (~> 2.0.0-beta)
-  - RxSwift (2.0.0-beta.1)
+  - RxCocoa (2.1.0):
+    - RxSwift (~> 2.0)
+  - RxSwift (2.1.0)
   - ScrollableTabs (0.1.1):
-    - RxCocoa (~> 2.0.0-beta)
-    - RxSwift (~> 2.0.0-beta)
+    - RxCocoa (~> 2.1)
+    - RxSwift (~> 2.1)
 
 DEPENDENCIES:
   - ScrollableTabs (from `../`)
@@ -14,8 +14,8 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  RxCocoa: a3c35a39c3b4e8175f271bd3a28be8ca52f97c93
-  RxSwift: a9b0f4d876eac130cda0ae2f3fba627be3baf3ef
-  ScrollableTabs: ea1ae2222e63c48647dd92e06ab06fab8c838e36
+  RxCocoa: 79b5feb8378545336e756a0a33fcf5e95050b71c
+  RxSwift: 110fb07f81c17c2c3b3254d168363057b1880d18
+  ScrollableTabs: 3076c01ca90756401633f718c337fce57869323d
 
 COCOAPODS: 0.39.0

@@ -1,13 +1,9 @@
-source 'https://github.com/CocoaPods/Specs.git'
+# Uncomment this line to define a global platform for your project
+# platform :ios, '8.0'
+# Uncomment this line if you're using Swift
 use_frameworks!
 
-target 'ScrollableTabs_Example', :exclusive => true do
+target 'ScrollableTabs-Example' do
   pod "ScrollableTabs", :path => "../"
 end
 
-target 'ScrollableTabs_Tests', :exclusive => true do
-  pod "ScrollableTabs", :path => "../"
-
-#  pod 'Quick', :git => 'https://github.com/Quick/Quick.git', :branch => 'xcode7.1'
-#  pod 'Nimble', '2.0.0-rc.3'
-end
