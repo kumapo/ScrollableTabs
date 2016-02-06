@@ -35,12 +35,10 @@
 		54FBD98B1C66269100454B65 /* ScrollableTabsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScrollableTabsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		54FBD9901C66269100454B65 /* ScrollableTabsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollableTabsTests.swift; sourceTree = "<group>"; };
 		54FBD9921C66269100454B65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		54FBD9AA1C662A8A00454B65 /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		54FBD9AB1C662A8A00454B65 /* ContentBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentBar.swift; sourceTree = "<group>"; };
 		54FBD9AC1C662A8A00454B65 /* ScrollableTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollableTabBar.swift; sourceTree = "<group>"; };
 		54FBD9AD1C662A8A00454B65 /* ScrollableTabBarContentableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollableTabBarContentableController.swift; sourceTree = "<group>"; };
 		54FBD9AE1C662A8A00454B65 /* ScrollableTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollableTabBarController.swift; sourceTree = "<group>"; };
-		54FBD9B51C662A9800454B65 /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		54FBD9B71C662EFE00454B65 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 		54FBD9B91C662F1500454B65 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -109,7 +107,6 @@
 		54FBD9A91C662A8A00454B65 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				54FBD9AA1C662A8A00454B65 /* .gitkeep */,
 				54FBD9AB1C662A8A00454B65 /* ContentBar.swift */,
 				54FBD9AC1C662A8A00454B65 /* ScrollableTabBar.swift */,
 				54FBD9AD1C662A8A00454B65 /* ScrollableTabBarContentableController.swift */,
@@ -121,7 +118,6 @@
 		54FBD9B41C662A9800454B65 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				54FBD9B51C662A9800454B65 /* .gitkeep */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -283,6 +279,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -331,6 +328,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -371,6 +369,8 @@
 		54FBD9961C66269100454B65 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				BITCODE_GENERATION_MODE = marker;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -391,6 +391,8 @@
 		54FBD9971C66269100454B65 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				BITCODE_GENERATION_MODE = bitcode;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
