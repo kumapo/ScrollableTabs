@@ -10,12 +10,12 @@
 		54FBD9851C66269000454B65 /* ScrollableTabs.h in Headers */ = {isa = PBXBuildFile; fileRef = 54FBD9841C66269000454B65 /* ScrollableTabs.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		54FBD98C1C66269100454B65 /* ScrollableTabs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54FBD9811C66269000454B65 /* ScrollableTabs.framework */; };
 		54FBD9911C66269100454B65 /* ScrollableTabsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FBD9901C66269100454B65 /* ScrollableTabsTests.swift */; };
-		54FBD9AF1C662A8A00454B65 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 54FBD9AA1C662A8A00454B65 /* .gitkeep */; };
 		54FBD9B01C662A8A00454B65 /* ContentBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FBD9AB1C662A8A00454B65 /* ContentBar.swift */; };
 		54FBD9B11C662A8A00454B65 /* ScrollableTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FBD9AC1C662A8A00454B65 /* ScrollableTabBar.swift */; };
 		54FBD9B21C662A8A00454B65 /* ScrollableTabBarContentableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FBD9AD1C662A8A00454B65 /* ScrollableTabBarContentableController.swift */; };
 		54FBD9B31C662A8A00454B65 /* ScrollableTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FBD9AE1C662A8A00454B65 /* ScrollableTabBarController.swift */; };
-		54FBD9B61C662A9800454B65 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 54FBD9B51C662A9800454B65 /* .gitkeep */; };
+		54FBD9B81C662EFE00454B65 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54FBD9B71C662EFE00454B65 /* RxSwift.framework */; };
+		54FBD9BA1C662F1500454B65 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54FBD9B91C662F1500454B65 /* RxCocoa.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +41,8 @@
 		54FBD9AD1C662A8A00454B65 /* ScrollableTabBarContentableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollableTabBarContentableController.swift; sourceTree = "<group>"; };
 		54FBD9AE1C662A8A00454B65 /* ScrollableTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollableTabBarController.swift; sourceTree = "<group>"; };
 		54FBD9B51C662A9800454B65 /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
+		54FBD9B71C662EFE00454B65 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
+		54FBD9B91C662F1500454B65 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +50,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				54FBD9BA1C662F1500454B65 /* RxCocoa.framework in Frameworks */,
+				54FBD9B81C662EFE00454B65 /* RxSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +69,8 @@
 		54FBD9771C66269000454B65 = {
 			isa = PBXGroup;
 			children = (
+				54FBD9B91C662F1500454B65 /* RxCocoa.framework */,
+				54FBD9B71C662EFE00454B65 /* RxSwift.framework */,
 				54FBD9831C66269000454B65 /* ScrollableTabs */,
 				54FBD98F1C66269100454B65 /* ScrollableTabsTests */,
 				54FBD9821C66269000454B65 /* Products */,
@@ -142,6 +148,7 @@
 				54FBD97D1C66269000454B65 /* Frameworks */,
 				54FBD97E1C66269000454B65 /* Headers */,
 				54FBD97F1C66269000454B65 /* Resources */,
+				54FBD9BC1C662F9D00454B65 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -211,8 +218,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				54FBD9AF1C662A8A00454B65 /* .gitkeep in Resources */,
-				54FBD9B61C662A9800454B65 /* .gitkeep in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -224,6 +229,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		54FBD9BC1C662F9D00454B65 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		54FBD97C1C66269000454B65 /* Sources */ = {
@@ -352,6 +375,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = ScrollableTabs/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -368,6 +395,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = ScrollableTabs/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
