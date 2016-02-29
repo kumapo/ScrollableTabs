@@ -48,7 +48,7 @@ class ViewController: UIViewController, ScrollableTabBarController, ScrollableTa
         let horizontalConstraints = NSLayoutConstraint.constraintsWithVisualFormat("H:|[contentView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDictionary)
         let verticalConstraints = NSLayoutConstraint.constraintsWithVisualFormat("V:|[contentView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDictionary)
         self.containerView.addConstraints(horizontalConstraints)
-        self.containerView.addConstraints(verticalConstraints)  //TODO: タブ切り替えのたびに constraints が増加してしまわないか
+        self.containerView.addConstraints(verticalConstraints)
     }
     
     //MARK: ScrollableTabBarController Delegate
