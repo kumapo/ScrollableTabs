@@ -28,13 +28,43 @@ pod "ScrollableTabs"
 ```
 ### Carthage
 
-To integrate it into your project using Carthage, specify it in your Cartfile: 
+Specify it in your Cartfile: 
 
 ```
 github "kumapo/ScrollableTabs"
 ```
 
 ## Usage
+
+### Container ViewController
+
+```Swift
+import ScrollableTabs
+
+class ViewController: UIViewController, ScrollableTabBarController {
+    
+    //Protocol Methods
+    @IBOutlet weak var scrollBar: ScrollableTabBar!
+    weak var delegate: ScrollableTabBarControllerDelegate?
+    var isTransitioningFromViewController: Bool = false
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Initialize childViewController1 and childViewController2
+        // .. 
+        setViewControllers([childViewController1, childViewController2], animated: false)
+        selectedViewController = childViewController1
+```
+
+### Content ViewController
+
+```Swift
+class ChildViewController: UIViewController, ScrollableTabBarContentableController {
+    lazy var item: UIBarButtonItem = {
+    // Initialize UIBarButtonItem
+    // .. 
+    }()
+```
 
 ## Author
 
