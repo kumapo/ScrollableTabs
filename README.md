@@ -17,12 +17,24 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Installation
 
-ScrollableTabs is available through [CocoaPods](http://cocoapods.org). To install
-it, simply add the following line to your Podfile:
+ScrollableTabs is available through both [CocoaPods](http://cocoapods.org) and [Carthage](https://github.com/Carthage/Carthage). 
+
+### CocoaPods 
+
+To integrate it into your project using CocoaPods, specify it in your Podfile:
 
 ```ruby
 pod "ScrollableTabs"
 ```
+### Carthage
+
+To integrate it into your project using Carthage, specify it in your Cartfile: 
+
+```
+github "kumapo/ScrollableTabs"
+```
+
+## Usage
 
 ## Author
 
