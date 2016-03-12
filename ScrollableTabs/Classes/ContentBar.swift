@@ -8,7 +8,7 @@
 import UIKit
 
 class ContentBar: UIToolbar {
-    let TrailingMarginToToolBar: CGFloat = 16.0
+    var TrailingMarginToToolBar: CGFloat { return 0.0 }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
