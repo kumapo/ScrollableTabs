@@ -16,7 +16,7 @@ public protocol ScrollableTabBarDelegate: class {
 public class ScrollableTabBar: UIScrollView {
     lazy var toolbar: UIToolbar = {
         let contentBar = ContentBar(frame: CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height))
-        contentBar.barTintColor = UIColor(red:0.11, green:0.102, blue:0.161, alpha:1)
+        contentBar.barTintColor = UIColor(red:0.11, green:0.102, blue:0.161, alpha:1)   //TODO: Configurable
         return contentBar
     }()
 
@@ -95,9 +95,9 @@ public class ScrollableTabBar: UIScrollView {
         self.contentSize = toolbarSize
     }
     private func itemsWithFixedSpace(items: [UIBarButtonItem]?) -> [UIBarButtonItem] {
-        var withSpace = [self.fixedSpaceOf(-19.0)]
+        var withSpace = [self.fixedSpaceOf(-19.0)]                      //TODO: Configurable
         items?.forEach { [unowned self] item in
-            withSpace.appendContentsOf([item, self.fixedSpaceOf(-9.0)])
+            withSpace.appendContentsOf([item, self.fixedSpaceOf(-9.0)]) //TODO: Configurable
         }
         return withSpace
     }
