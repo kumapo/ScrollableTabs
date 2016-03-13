@@ -21,7 +21,7 @@ class ContentBar: UIToolbar {
     }
     
     private func _init() {
-        self.clipsToBounds = true
+        clipsToBounds = true
     }
     
     // http://stackoverflow.com/questions/2135407/is-there-a-way-to-change-the-height-of-a-uitoolbar

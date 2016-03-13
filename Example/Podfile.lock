@@ -1,12 +1,14 @@
 PODS:
+  - DCIntrospect-ARC (0.0.8)
   - RxCocoa (2.2.0):
     - RxSwift (~> 2.2)
   - RxSwift (2.2.0)
-  - ScrollableTabs (0.1.1):
+  - ScrollableTabs (0.1.2):
     - RxCocoa (~> 2.1)
     - RxSwift (~> 2.1)
 
 DEPENDENCIES:
+  - DCIntrospect-ARC
   - ScrollableTabs (from `../`)
 
 EXTERNAL SOURCES:
@@ -14,8 +16,9 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
+  DCIntrospect-ARC: 68a97cc2e99420b21bfcd66865b5376701f8e7f5
   RxCocoa: 42efb7a7145a8d1d5878e94ce48a580d29e0c796
   RxSwift: b8a749f2204c6c7a5c29b306a9c3bc11d5b87c5b
-  ScrollableTabs: 3076c01ca90756401633f718c337fce57869323d
+  ScrollableTabs: e21b608aa3e20a7c6b46bfa49dd3ba540f3b92a1
 
 COCOAPODS: 0.39.0

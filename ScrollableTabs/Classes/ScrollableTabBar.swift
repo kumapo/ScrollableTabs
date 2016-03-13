@@ -15,7 +15,9 @@ public protocol ScrollableTabBarDelegate: class {
 
 public class ScrollableTabBar: UIScrollView {
     lazy var toolbar: UIToolbar = {
-        return ContentBar(frame: CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height))
+        let contentBar = ContentBar(frame: CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height))
+        contentBar.barTintColor = UIColor(red:0.11, green:0.102, blue:0.161, alpha:1)
+        return contentBar
     }()
 
     weak public var barDelegate: ScrollableTabBarDelegate?
@@ -45,7 +47,13 @@ public class ScrollableTabBar: UIScrollView {
         }
     }
     
-    private var disposeBag = DisposeBag()
+    private var fixedSpaceOf: (CGFloat) -> UIBarButtonItem =  { width in
+        let spacer = UIBarButtonItem(barButtonSystemItem: .FixedSpace, target: nil, action: nil)
+        spacer.width = width
+        return spacer
+    }
+    
+    private let disposeBag = DisposeBag()
     
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -76,15 +84,22 @@ public class ScrollableTabBar: UIScrollView {
     }
 
     func setItems(items: [UIBarButtonItem]?, animated: Bool) {
-        self.toolbar.setItems(items, animated: animated)
+        toolbar.setItems(itemsWithFixedSpace(items), animated: animated)
         addActionToItems()
         
-        let toolbarSize = self.toolbar.sizeThatFits(self.toolbar.frame.size)
-        if self.frame.size.width < toolbarSize.width {
-            self.toolbar.sizeToFit()    //sizeToFit calls sizeThatFits and layoutSubviews
+        let toolbarSize = toolbar.sizeThatFits(toolbar.frame.size)
+        if frame.size.width < toolbarSize.width {
+            toolbar.sizeToFit()    //sizeToFit calls sizeThatFits and layoutSubviews
         }
         //toolbar に items が収まるときはリサイズしない
         self.contentSize = toolbarSize
+    }
+    private func itemsWithFixedSpace(items: [UIBarButtonItem]?) -> [UIBarButtonItem] {
+        var withSpace = [self.fixedSpaceOf(-19.0)]
+        items?.forEach { [unowned self] item in
+            withSpace.appendContentsOf([item, self.fixedSpaceOf(-9.0)])
+        }
+        return withSpace
     }
     
     private func addActionToItems() {

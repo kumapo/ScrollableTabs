@@ -34,8 +34,9 @@ class ViewController: UIViewController, ScrollableTabBarController, ScrollableTa
         let firstChildViewController = ChildViewController()
         
         setViewControllers([firstChildViewController, AnotherChildViewController(), ChildViewController(),
-            AnotherChildViewController(), ChildViewController(), AnotherChildViewController(),
-            ChildViewController(), AnotherChildViewController()], animated: false)
+//            AnotherChildViewController(), ChildViewController(), AnotherChildViewController(),
+//            ChildViewController(), AnotherChildViewController(), ChildViewController(),
+            AnotherChildViewController()], animated: false)
         selectedViewController = firstChildViewController
         self.delegate = self
         

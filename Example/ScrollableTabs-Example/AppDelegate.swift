@@ -1,3 +1,4 @@
+
 //
 //  AppDelegate.swift
 //  ScrollableTabs
@@ -7,6 +8,7 @@
 //
 
 import UIKit
+import DCIntrospect_ARC
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +18,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        #if (arch(i386) || arch(x86_64)) && os(iOS)
+            DCIntrospect.sharedIntrospector().start()
+        #endif
         return true
     }
 
