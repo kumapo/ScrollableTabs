@@ -104,7 +104,7 @@ public class ScrollableTabBar: UIScrollView {
     
     private func addActionToItems() {
         if let items = self.toolbar.items {
-            for var i = 0; i < items.count; i++ {
+            for i in 0 ..< items.count {
                 if let button = items[i].customView as? UIButton {
                     let index = i                   //クロージャを宣言したときの値を退避しておく
                     button.rx_tap.subscribeNext { [unowned self] _ in
@@ -136,7 +136,7 @@ public class ScrollableTabBar: UIScrollView {
     private func indexWithItem(item: UIBarButtonItem) -> Int {
         var index = -1
         let items = self.toolbar.items!
-        for var i = 0; i < items.count; i++ {
+        for i in 0 ..< items.count {
             if item == items[i] {
                 index = i
                 break
