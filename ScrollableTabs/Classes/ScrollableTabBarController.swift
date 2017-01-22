@@ -8,7 +8,7 @@
 import UIKit
 
 public protocol ScrollableTabBarControllerDelegate : class {
-    func scrollBarController(scrollBarController: ScrollableTabBarController,
+    func scrollBarController(_ scrollBarController: ScrollableTabBarController,
         didSelectViewController viewController: UIViewController)
 }
 
@@ -18,17 +18,17 @@ public protocol ScrollableTabBarController : ScrollableTabBarDelegate {
     weak var delegate: ScrollableTabBarControllerDelegate? { get set }
 
     //Override by extension
-    func setViewControllers(viewControllers: [ScrollableTabBarContentableController], animated: Bool)
+    func setViewControllers(_ viewControllers: [ScrollableTabBarContentableController], animated: Bool)
 
     //From UIViewController
     var childViewControllers: [UIViewController] { get }
-    func transitionFromViewController(fromViewController: UIViewController, toViewController: UIViewController, duration: NSTimeInterval, options: UIViewAnimationOptions, animations: (() -> Void)?, completion: ((Bool) -> Void)?)
-    func didMoveToParentViewController(parent: UIViewController?)
-    func addChildViewController(childController: UIViewController)
+    func transitionFromViewController(_ fromViewController: UIViewController, toViewController: UIViewController, duration: TimeInterval, options: UIViewAnimationOptions, animations: (() -> Void)?, completion: ((Bool) -> Void)?)
+    func didMoveToParentViewController(_ parent: UIViewController?)
+    func addChildViewController(_ childController: UIViewController)
     
     //Overloads
-    func didMoveToParentViewController(parent: ScrollableTabBarContentableController?)
-    func addChildViewController(childController: ScrollableTabBarContentableController)
+    func didMoveToParentViewController(_ parent: ScrollableTabBarContentableController?)
+    func addChildViewController(_ childController: ScrollableTabBarContentableController)
 }
 
 public extension ScrollableTabBarController {
@@ -42,7 +42,7 @@ public extension ScrollableTabBarController {
         }
     }
 
-    func setViewControllers(viewControllers:[ScrollableTabBarContentableController], animated: Bool) {
+    func setViewControllers(_ viewControllers:[ScrollableTabBarContentableController], animated: Bool) {
         if scrollBar.barDelegate == nil {
             scrollBar.barDelegate = self    //Set once
         }
@@ -61,7 +61,7 @@ public extension ScrollableTabBarController {
         scrollBar.setItems(items, animated: false)
     }
     
-    func scrollBar(scrollbar: ScrollableTabBar, willSelectItem item: UIBarButtonItem!) {
+    func scrollBar(_ scrollbar: ScrollableTabBar, willSelectItem item: UIBarButtonItem!) {
         let didSelectController = viewControllerWithItem(item)
         
         if let toViewController = didSelectController {
@@ -74,7 +74,7 @@ public extension ScrollableTabBarController {
                 }
                 
                 self.transitionFromViewController(selectedViewController, toViewController: didSelectController!,
-                    duration: NSTimeInterval(0), options: UIViewAnimationOptions(rawValue: 0),
+                    duration: TimeInterval(0), options: UIViewAnimationOptions(rawValue: 0),
                     animations: { [unowned self] (finished) -> Void in
                         //toViewController の viewWillAppear の実行が終わったあとに実行する
                         self.selectedViewController = didSelectController!
@@ -92,7 +92,7 @@ public extension ScrollableTabBarController {
         
     }
     
-    private func viewControllerWithItem(item: UIBarButtonItem) -> UIViewController? {
+    fileprivate func viewControllerWithItem(_ item: UIBarButtonItem) -> UIViewController? {
         var viewController: UIViewController?
         for childController in self.childViewControllers {
             //childViewController が ScrollBarContentableController でないときは例外にする
@@ -105,11 +105,11 @@ public extension ScrollableTabBarController {
         return viewController
     }
     
-    func addChildViewController(childController: ScrollableTabBarContentableController) {
+    func addChildViewController(_ childController: ScrollableTabBarContentableController) {
         self.addChildViewController(childController as! UIViewController)
     }
     
-    func didMoveToParentViewController(parent: ScrollableTabBarContentableController?) {
+    func didMoveToParentViewController(_ parent: ScrollableTabBarContentableController?) {
         self.didMoveToParentViewController(parent as! UIViewController?)
     }
 

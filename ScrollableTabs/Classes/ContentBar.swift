@@ -20,17 +20,17 @@ class ContentBar: UIToolbar {
         _init()
     }
     
-    private func _init() {
+    fileprivate func _init() {
         clipsToBounds = true
     }
     
     // http://stackoverflow.com/questions/2135407/is-there-a-way-to-change-the-height-of-a-uitoolbar
-    override func intrinsicContentSize() -> CGSize {
+    override var intrinsicContentSize : CGSize {
         return CGSize(width: UIViewNoIntrinsicMetric,
             height: self.superview!.bounds.size.height)
     }
     
-    override func sizeThatFits(size: CGSize) -> CGSize {
+    override func sizeThatFits(_ size: CGSize) -> CGSize {
 //        let baseSize = super.sizeThatFits(size)   //Not to change height to super calcurates
         let trailingView = self.subviews.last!
         return CGSize(width: trailingView.frame.origin.x + trailingView.frame.size.width + TrailingMarginToToolBar,

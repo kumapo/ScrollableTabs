@@ -46,14 +46,14 @@ class ViewController: UIViewController, ScrollableTabBarController, ScrollableTa
 
     func updateSelectedViewConstraints() {
         let viewDictionary = [ "contentView": self.selectedViewController.view ]
-        let horizontalConstraints = NSLayoutConstraint.constraintsWithVisualFormat("H:|[contentView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDictionary)
-        let verticalConstraints = NSLayoutConstraint.constraintsWithVisualFormat("V:|[contentView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDictionary)
+        let horizontalConstraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|[contentView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDictionary)
+        let verticalConstraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|[contentView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDictionary)
         self.containerView.addConstraints(horizontalConstraints)
         self.containerView.addConstraints(verticalConstraints)
     }
     
     //MARK: ScrollableTabBarController Delegate
-    func scrollBarController(scrollBarController: ScrollableTabBarController, didSelectViewController viewController: UIViewController) {
+    func scrollBarController(_ scrollBarController: ScrollableTabBarController, didSelectViewController viewController: UIViewController) {
         updateSelectedViewConstraints()
     }
 }
