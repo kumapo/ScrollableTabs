@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0E7B882FAB3D4F43C93CD527 /* Pods_ScrollableTabs_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D07EC8ED09AD2932B6E2E7A9 /* Pods_ScrollableTabs_Example.framework */; };
+		54E373E11E34B2A700418B2D /* ScrollableTabs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54E373DF1E34B24000418B2D /* ScrollableTabs.framework */; };
+		54E373E41E34B43F00418B2D /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54E373E31E34B43F00418B2D /* RxSwift.framework */; };
+		54E373E61E34B44D00418B2D /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54E373E51E34B44D00418B2D /* RxCocoa.framework */; };
 		54FBDA031C66518400454B65 /* AnotherChildViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FBD9FB1C66518400454B65 /* AnotherChildViewController.swift */; };
 		54FBDA041C66518400454B65 /* ChildViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FBD9FC1C66518400454B65 /* ChildViewController.swift */; };
 		54FBDA051C66518400454B65 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FBD9FD1C66518400454B65 /* AppDelegate.swift */; };
@@ -22,6 +24,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		54E373DF1E34B24000418B2D /* ScrollableTabs.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ScrollableTabs.framework; path = Carthage/Build/iOS/ScrollableTabs.framework; sourceTree = "<group>"; };
+		54E373E31E34B43F00418B2D /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
+		54E373E51E34B44D00418B2D /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
 		54FBD9E61C664F2800454B65 /* ScrollableTabs-Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ScrollableTabs-Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		54FBD9F51C664F2800454B65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		54FBD9FB1C66518400454B65 /* AnotherChildViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnotherChildViewController.swift; sourceTree = "<group>"; };
@@ -35,9 +40,6 @@
 		54FBDA1B1C665B0E00454B65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		54FBDA1D1C665B0E00454B65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
 		54FBDA1E1C665B0E00454B65 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		723B78647668A13C9917C30F /* Pods-ScrollableTabs-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScrollableTabs-Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ScrollableTabs-Example/Pods-ScrollableTabs-Example.debug.xcconfig"; sourceTree = "<group>"; };
-		D07EC8ED09AD2932B6E2E7A9 /* Pods_ScrollableTabs_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ScrollableTabs_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		DFF3AAD4069398E8239AF088 /* Pods-ScrollableTabs-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScrollableTabs-Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-ScrollableTabs-Example/Pods-ScrollableTabs-Example.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,17 +47,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0E7B882FAB3D4F43C93CD527 /* Pods_ScrollableTabs_Example.framework in Frameworks */,
+				54E373E61E34B44D00418B2D /* RxCocoa.framework in Frameworks */,
+				54E373E41E34B43F00418B2D /* RxSwift.framework in Frameworks */,
+				54E373E11E34B2A700418B2D /* ScrollableTabs.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		545906A86560B4BB59AC7B90 /* Frameworks */ = {
+		54E373DE1E34B24000418B2D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D07EC8ED09AD2932B6E2E7A9 /* Pods_ScrollableTabs_Example.framework */,
+				54E373E51E34B44D00418B2D /* RxCocoa.framework */,
+				54E373E31E34B43F00418B2D /* RxSwift.framework */,
+				54E373DF1E34B24000418B2D /* ScrollableTabs.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -65,8 +71,7 @@
 			children = (
 				54FBD9E81C664F2800454B65 /* ScrollableTabs-Example */,
 				54FBD9E71C664F2800454B65 /* Products */,
-				C7C150F785AF7238BA9D2633 /* Pods */,
-				545906A86560B4BB59AC7B90 /* Frameworks */,
+				54E373DE1E34B24000418B2D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -105,15 +110,6 @@
 			path = Base.lproj;
 			sourceTree = "<group>";
 		};
-		C7C150F785AF7238BA9D2633 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				723B78647668A13C9917C30F /* Pods-ScrollableTabs-Example.debug.xcconfig */,
-				DFF3AAD4069398E8239AF088 /* Pods-ScrollableTabs-Example.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -121,12 +117,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 54FBD9F81C664F2800454B65 /* Build configuration list for PBXNativeTarget "ScrollableTabs-Example" */;
 			buildPhases = (
-				A4CA8FFDECD74AC565505F20 /* [CP] Check Pods Manifest.lock */,
 				54FBD9E21C664F2800454B65 /* Sources */,
 				54FBD9E31C664F2800454B65 /* Frameworks */,
 				54FBD9E41C664F2800454B65 /* Resources */,
-				7D60E793E48ADF9FECAE4178 /* [CP] Embed Pods Frameworks */,
-				84DE0BAAAAD47E3E5130F82D /* [CP] Copy Pods Resources */,
+				54E373E21E34B2CA00418B2D /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -189,50 +183,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		7D60E793E48ADF9FECAE4178 /* [CP] Embed Pods Frameworks */ = {
+		54E373E21E34B2CA00418B2D /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/ScrollableTabs.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
 			);
-			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ScrollableTabs-Example/Pods-ScrollableTabs-Example-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		84DE0BAAAAD47E3E5130F82D /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ScrollableTabs-Example/Pods-ScrollableTabs-Example-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A4CA8FFDECD74AC565505F20 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -360,12 +325,14 @@
 		};
 		54FBD9F91C664F2800454B65 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 723B78647668A13C9917C30F /* Pods-ScrollableTabs-Example.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "ScrollableTabs-Example/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.ScrollableTabs-Example";
@@ -377,12 +344,14 @@
 		};
 		54FBD9FA1C664F2800454B65 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DFF3AAD4069398E8239AF088 /* Pods-ScrollableTabs-Example.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "ScrollableTabs-Example/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.ScrollableTabs-Example";
