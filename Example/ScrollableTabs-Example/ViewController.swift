@@ -53,7 +53,7 @@ class ViewController: UIViewController, ScrollableTabBarController, ScrollableTa
     }
     
     //MARK: ScrollableTabBarController Delegate
-    func scrollBarController(scrollBarController: ScrollableTabBarController, didSelectViewController viewController: UIViewController) {
+    func scrollBarController(_ scrollBarController: ScrollableTabBarController, didSelectViewController viewController: UIViewController) {
         updateSelectedViewConstraints()
     }
 }

@@ -11,11 +11,11 @@ import ScrollableTabs
 
 class AnotherChildViewController: UIViewController, ScrollableTabBarContentableController {
     lazy var item: UIBarButtonItem = {
-        let content = UIButton(type: .Custom)
+        let content = UIButton(type: .custom)
         content.frame = CGRect(x: 0, y: 0, width: 60, height: 60)
-        content.setImage(UIImage(named: "tabKbPlusD"), forState: .Normal)
-        content.setImage(UIImage(named: "tabKbPlusE"), forState: .Selected)
-        content.imageView!.contentMode = .ScaleToFill
+        content.setImage(UIImage(named: "tabKbPlusD"), for: UIControlState())
+        content.setImage(UIImage(named: "tabKbPlusE"), for: .selected)
+        content.imageView!.contentMode = .scaleToFill
         return UIBarButtonItem(customView: content)
     }()
     
@@ -23,7 +23,7 @@ class AnotherChildViewController: UIViewController, ScrollableTabBarContentableC
         super.init(coder: aDecoder)
     }
     
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
     
@@ -36,7 +36,7 @@ class AnotherChildViewController: UIViewController, ScrollableTabBarContentableC
 
         // Do any additional setup after loading the view.
         self.view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = UIColor.darkGrayColor()
+        view.backgroundColor = UIColor.darkGray
     }
     
     override func didReceiveMemoryWarning() {
