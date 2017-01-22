@@ -17,9 +17,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        #if (arch(i386) || arch(x86_64)) && os(iOS)
-            DCIntrospect.sharedIntrospector().start()
-        #endif
         return true
     }
 
