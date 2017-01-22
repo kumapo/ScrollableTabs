@@ -6,7 +6,7 @@ language: objective-c
 osx_image: xcode8.2
 
 before_install:
-- carthage update --platform ios
+- carthage update --project-directory ./Example --platform ios
 
 script:
 - set -o pipefail && xcodebuild -project Example/ScrollableTabs-Example.xcodeproj -scheme ScrollableTabs-Example -sdk iphonesimulator -destination 'platform=iOS Simulator,OS=10.1,name=iPhone 7' ONLY_ACTIVE_ARCH=NO clean build | xcpretty -c
