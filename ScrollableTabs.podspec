@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = "ScrollableTabs"
-  s.version          = "0.1.2"
-  s.summary          = "Protocol-oriented Scrollable TabBar written in Swift2"
+  s.version          = "0.1.3"
+  s.summary          = "Protocol-oriented Scrollable TabBar written in Swift 2"
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
 #   * Write the description between the DESC delimiters below.
 #   * Finally, don't worry about the indent, CocoaPods strips it!  
   s.description      = <<-DESC
-Protocol-oriented Scrollable TabBar written in Swift2.
+Protocol-oriented Scrollable TabBar written in Swift 2.
                        DESC
 
   s.homepage         = "https://github.com/kumapo/ScrollableTabs"
