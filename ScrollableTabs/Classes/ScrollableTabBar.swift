@@ -107,9 +107,9 @@ open class ScrollableTabBar: UIScrollView {
             for i in 0 ..< items.count {
                 if let button = items[i].customView as? UIButton {
                     let index = i                   //クロージャを宣言したときの値を退避しておく
-                    button.rx_tap.subscribeNext { [unowned self] _ in
+                    button.rx.tap.subscribe(onNext: { [unowned self] _ in
                         self.willSelectIndex(index) //宣言時の値をつかう
-                    } .addDisposableTo(disposeBag)
+                    }).addDisposableTo(disposeBag)
                 }
             }
         }
