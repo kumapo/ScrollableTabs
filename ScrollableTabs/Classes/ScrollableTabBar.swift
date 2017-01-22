@@ -10,20 +10,20 @@ import RxSwift
 import RxCocoa
 
 public protocol ScrollableTabBarDelegate: class {
-    func scrollBar(scrollbar:ScrollableTabBar, willSelectItem item:UIBarButtonItem!)
+    func scrollBar(_ scrollbar:ScrollableTabBar, willSelectItem item:UIBarButtonItem!)
 }
 
-public class ScrollableTabBar: UIScrollView {
+open class ScrollableTabBar: UIScrollView {
     lazy var toolbar: UIToolbar = {
         let contentBar = ContentBar(frame: CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height))
         contentBar.barTintColor = UIColor(red:0.11, green:0.102, blue:0.161, alpha:1)   //TODO: Configurable
         return contentBar
     }()
 
-    weak public var barDelegate: ScrollableTabBarDelegate?
+    weak open var barDelegate: ScrollableTabBarDelegate?
     
-    private var selectedIndex: Int?
-    public var selectedItem: UIBarButtonItem {
+    fileprivate var selectedIndex: Int?
+    open var selectedItem: UIBarButtonItem {
         set(willSelectItem) {
             let index = indexWithItem(willSelectItem)
             if !shouldSelectIndex(index) {
@@ -33,13 +33,13 @@ public class ScrollableTabBar: UIScrollView {
             //Deselect previous selected
             if selectedIndex != nil {
                 let button = selectedItem.customView as! UIButton
-                button.selected = false
+                button.isSelected = false
             }
             
             //Select current selected
             selectedIndex = index
             if let button = willSelectItem.customView as? UIButton {
-                button.selected = true
+                button.isSelected = true
             }
         }
         get {
@@ -47,13 +47,13 @@ public class ScrollableTabBar: UIScrollView {
         }
     }
     
-    private var fixedSpaceOf: (CGFloat) -> UIBarButtonItem =  { width in
-        let spacer = UIBarButtonItem(barButtonSystemItem: .FixedSpace, target: nil, action: nil)
+    fileprivate var fixedSpaceOf: (CGFloat) -> UIBarButtonItem =  { width in
+        let spacer = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
         spacer.width = width
         return spacer
     }
     
-    private let disposeBag = DisposeBag()
+    fileprivate let disposeBag = DisposeBag()
     
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -65,7 +65,7 @@ public class ScrollableTabBar: UIScrollView {
         _init()
     }
     
-    private func _init() {
+    fileprivate func _init() {
         self.autoresizesSubviews = true     //Layout subviews with autoresize
         self.showsVerticalScrollIndicator = false
         self.showsHorizontalScrollIndicator = false
@@ -77,13 +77,13 @@ public class ScrollableTabBar: UIScrollView {
         self.addSubview(self.toolbar)
     }
     
-    override public func intrinsicContentSize() -> CGSize {
+    override open var intrinsicContentSize : CGSize {
         let width = self.bounds.size.width
         let hight = self.bounds.size.height
         return CGSize(width: width, height: hight)
     }
 
-    func setItems(items: [UIBarButtonItem]?, animated: Bool) {
+    func setItems(_ items: [UIBarButtonItem]?, animated: Bool) {
         toolbar.setItems(itemsWithFixedSpace(items), animated: animated)
         addActionToItems()
         
@@ -94,15 +94,15 @@ public class ScrollableTabBar: UIScrollView {
         //toolbar に items が収まるときはリサイズしない
         self.contentSize = toolbarSize
     }
-    private func itemsWithFixedSpace(items: [UIBarButtonItem]?) -> [UIBarButtonItem] {
+    fileprivate func itemsWithFixedSpace(_ items: [UIBarButtonItem]?) -> [UIBarButtonItem] {
         var withSpace = [self.fixedSpaceOf(-19.0)]                      //TODO: Configurable
         items?.forEach { [unowned self] item in
-            withSpace.appendContentsOf([item, self.fixedSpaceOf(-9.0)]) //TODO: Configurable
+            withSpace.append(contentsOf: [item, self.fixedSpaceOf(-9.0)]) //TODO: Configurable
         }
         return withSpace
     }
     
-    private func addActionToItems() {
+    fileprivate func addActionToItems() {
         if let items = self.toolbar.items {
             for i in 0 ..< items.count {
                 if let button = items[i].customView as? UIButton {
@@ -115,7 +115,7 @@ public class ScrollableTabBar: UIScrollView {
         }
     }
     
-    private func willSelectIndex(index: Int) {
+    fileprivate func willSelectIndex(_ index: Int) {
         if self.barDelegate == nil {
             return
         }
@@ -126,14 +126,14 @@ public class ScrollableTabBar: UIScrollView {
         self.barDelegate!.scrollBar(self, willSelectItem: willSelectItem)
     }
     
-    private func shouldSelectIndex(index: Int) -> Bool {
+    fileprivate func shouldSelectIndex(_ index: Int) -> Bool {
         if index != selectedIndex {
             return true
         }
         return false
     }
     
-    private func indexWithItem(item: UIBarButtonItem) -> Int {
+    fileprivate func indexWithItem(_ item: UIBarButtonItem) -> Int {
         var index = -1
         let items = self.toolbar.items!
         for i in 0 ..< items.count {
@@ -145,7 +145,7 @@ public class ScrollableTabBar: UIScrollView {
         return index
     }
     
-    private func itemWithIndex(index: Int) -> UIBarButtonItem {
+    fileprivate func itemWithIndex(_ index: Int) -> UIBarButtonItem {
         return toolbar.items![index]
     }
 }
