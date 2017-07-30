@@ -75,7 +75,7 @@ public extension ScrollableTabBarController {
                 
                 self.transitionFromViewController(selectedViewController, toViewController: didSelectController!,
                     duration: TimeInterval(0), options: UIViewAnimationOptions(rawValue: 0),
-                    animations: { [unowned self] (finished) -> Void in
+                    animations: { [unowned self] () -> Void in
                         //toViewController の viewWillAppear の実行が終わったあとに実行する
                         self.selectedViewController = didSelectController!
                         
