@@ -34,6 +34,6 @@ Protocol-oriented Scrollable TabBar written in Swift 3.
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
-  s.dependency 'RxSwift', '~> 3.0.1'
-  s.dependency 'RxCocoa', '~> 3.0.1'
+  s.dependency 'RxSwift', '~> 3.0'
+  s.dependency 'RxCocoa', '~> 3.0'
 end
