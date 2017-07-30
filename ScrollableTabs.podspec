@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "ScrollableTabs"
-  s.version          = "0.2.0"
+  s.version          = "0.2.1"
   s.summary          = "Protocol-oriented Scrollable TabBar written in Swift 3"
 
 # This description is used to generate tags and improve search results.
