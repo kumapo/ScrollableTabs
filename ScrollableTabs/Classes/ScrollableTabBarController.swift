@@ -22,12 +22,12 @@ public protocol ScrollableTabBarController : ScrollableTabBarDelegate {
 
     //From UIViewController
     var childViewControllers: [UIViewController] { get }
-    func transitionFromViewController(_ fromViewController: UIViewController, toViewController: UIViewController, duration: TimeInterval, options: UIViewAnimationOptions, animations: (() -> Void)?, completion: ((Bool) -> Void)?)
-    func didMoveToParentViewController(_ parent: UIViewController?)
+    func transition(from fromViewController: UIViewController, to toViewController: UIViewController, duration: TimeInterval, options: UIViewAnimationOptions, animations: (() -> Swift.Void)?, completion: ((Bool) -> Swift.Void)?)
+    func didMove(toParentViewController parent: UIViewController?)
     func addChildViewController(_ childController: UIViewController)
     
     //Overloads
-    func didMoveToParentViewController(_ parent: ScrollableTabBarContentableController?)
+    func didMove(toParentViewController parent: ScrollableTabBarContentableController?)
     func addChildViewController(_ childController: ScrollableTabBarContentableController)
 }
 
@@ -48,8 +48,8 @@ public extension ScrollableTabBarController {
         }
         
         for viewController in viewControllers {
-            self.addChildViewController(viewController)
-            self.didMoveToParentViewController(viewController)
+            addChildViewController(viewController)
+            didMove(toParentViewController: viewController)
         }
         
         var items: [UIBarButtonItem] = []
@@ -62,34 +62,30 @@ public extension ScrollableTabBarController {
     }
     
     func scrollBar(_ scrollbar: ScrollableTabBar, willSelectItem item: UIBarButtonItem!) {
-        let didSelectController = viewControllerWithItem(item)
-        
-        if let toViewController = didSelectController {
-            if selectedViewController != toViewController {
-                
-                if isTransitioningFromViewController {
-                    return
-                } else {
-                    isTransitioningFromViewController = true
-                }
-                
-                self.transitionFromViewController(selectedViewController, toViewController: didSelectController!,
-                    duration: TimeInterval(0), options: UIViewAnimationOptions(rawValue: 0),
-                    animations: { [unowned self] () -> Void in
-                        //toViewController の viewWillAppear の実行が終わったあとに実行する
-                        self.selectedViewController = didSelectController!
-                        
-                        if self.delegate != nil {
-                            self.delegate!.scrollBarController(self, didSelectViewController: self.selectedViewController)
-                        }
-                    },
-                    completion: { [unowned self] (finished) -> Void in
-                        //toViewController の viewDidAppear の実行が終わったあとに実行する
-                        self.isTransitioningFromViewController = false
-                    })
-            }
+        guard
+            let toViewController = viewControllerWithItem(item),
+            selectedViewController != toViewController,
+            !isTransitioningFromViewController
+        else {
+            return
         }
         
+        isTransitioningFromViewController = true
+        self.transition(from: selectedViewController, to: toViewController,
+                        duration: TimeInterval(0),
+                        options:UIViewAnimationOptions(rawValue:0),
+                        animations: { [unowned self] in
+                            //toViewController の viewWillAppear の実行が終わったあとに実行する
+                            self.selectedViewController = toViewController
+                        
+                            if let delegate = self.delegate {
+                                delegate.scrollBarController(self, didSelectViewController: self.selectedViewController)
+                            }
+                        },
+                        completion: { [unowned self] _ in
+                            //toViewController の viewDidAppear の実行が終わったあとに実行する
+                            self.isTransitioningFromViewController = false
+                        })
     }
     
     fileprivate func viewControllerWithItem(_ item: UIBarButtonItem) -> UIViewController? {
@@ -106,11 +102,13 @@ public extension ScrollableTabBarController {
     }
     
     func addChildViewController(_ childController: ScrollableTabBarContentableController) {
-        self.addChildViewController(childController as! UIViewController)
+        guard  let childController = childController as? UIViewController else { return }
+        
+        addChildViewController(childController)
     }
     
-    func didMoveToParentViewController(_ parent: ScrollableTabBarContentableController?) {
-        self.didMoveToParentViewController(parent as! UIViewController?)
+    func didMove(toParentViewController parent: ScrollableTabBarContentableController?) {
+        didMove(toParentViewController: parent as? UIViewController)
     }
 
 }
