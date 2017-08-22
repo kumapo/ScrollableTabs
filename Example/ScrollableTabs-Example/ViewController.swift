@@ -38,14 +38,16 @@ class ViewController: UIViewController, ScrollableTabBarController, ScrollableTa
 //            ChildViewController(), AnotherChildViewController(), ChildViewController(),
             AnotherChildViewController()], animated: false)
         selectedViewController = firstChildViewController
-        self.delegate = self
+        delegate = self
         
-        self.containerView.addSubview(selectedViewController.view)
+        containerView.addSubview(selectedViewController.view)
         updateSelectedViewConstraints()
     }
 
     func updateSelectedViewConstraints() {
-        let viewDictionary = [ "contentView": self.selectedViewController.view ]
+        guard let selectedView = selectedViewController.view else { return }
+        
+        let viewDictionary = [ "contentView": selectedView ]
         let horizontalConstraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|[contentView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDictionary)
         let verticalConstraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|[contentView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewDictionary)
         self.containerView.addConstraints(horizontalConstraints)
