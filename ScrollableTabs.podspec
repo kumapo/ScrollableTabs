@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "ScrollableTabs"
-  s.version          = "0.2.2"
+  s.version          = "0.2.3"
   s.summary          = "Protocol-oriented Scrollable TabBar written in Swift 4"
 
 # This description is used to generate tags and improve search results.
@@ -34,6 +34,6 @@ Protocol-oriented Scrollable TabBar written in Swift 4.
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
-  s.dependency 'RxSwift', '4.0.0-alpha.1'
-  s.dependency 'RxCocoa', '4.0.0-alpha.1'
+  s.dependency 'RxSwift', '4.1.2'
+  s.dependency 'RxCocoa', '4.1.2'
 end
