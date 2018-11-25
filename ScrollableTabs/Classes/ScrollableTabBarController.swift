@@ -22,7 +22,7 @@ public protocol ScrollableTabBarController : ScrollableTabBarDelegate {
 
     //From UIViewController
     var childViewControllers: [UIViewController] { get }
-    func transition(from fromViewController: UIViewController, to toViewController: UIViewController, duration: TimeInterval, options: UIViewAnimationOptions, animations: (() -> Swift.Void)?, completion: ((Bool) -> Swift.Void)?)
+    func transition(from fromViewController: UIViewController, to toViewController: UIViewController, duration: TimeInterval, options: UIView.AnimationOptions, animations: (() -> Swift.Void)?, completion: ((Bool) -> Swift.Void)?)
     func didMove(toParentViewController parent: UIViewController?)
     func addChildViewController(_ childController: UIViewController)
     
@@ -73,7 +73,7 @@ public extension ScrollableTabBarController {
         isTransitioningFromViewController = true
         self.transition(from: selectedViewController, to: toViewController,
                         duration: TimeInterval(0),
-                        options:UIViewAnimationOptions(rawValue:0),
+                        options:UIView.AnimationOptions(rawValue:0),
                         animations: { [unowned self] in
                             //toViewController の viewWillAppear の実行が終わったあとに実行する
                             self.selectedViewController = toViewController

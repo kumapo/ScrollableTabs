@@ -26,7 +26,7 @@ class ContentBar: UIToolbar {
     
     // http://stackoverflow.com/questions/2135407/is-there-a-way-to-change-the-height-of-a-uitoolbar
     override var intrinsicContentSize : CGSize {
-        return CGSize(width: UIViewNoIntrinsicMetric,
+        return CGSize(width: UIView.noIntrinsicMetric,
             height: self.superview!.bounds.size.height)
     }
     
