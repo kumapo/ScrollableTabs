@@ -21,7 +21,7 @@ public protocol ScrollableTabBarController : ScrollableTabBarDelegate {
     func setViewControllers(_ viewControllers: [ScrollableTabBarContentableController], animated: Bool)
 
     //From UIViewController
-    var childViewControllers: [UIViewController] { get }
+    var children: [UIViewController] { get }
     func transition(from fromViewController: UIViewController, to toViewController: UIViewController, duration: TimeInterval, options: UIView.AnimationOptions, animations: (() -> Swift.Void)?, completion: ((Bool) -> Swift.Void)?)
     func didMove(toParentViewController parent: UIViewController?)
     func addChildViewController(_ childController: UIViewController)
@@ -53,7 +53,7 @@ public extension ScrollableTabBarController {
         }
         
         var items: [UIBarButtonItem] = []
-        for childController in childViewControllers {
+        for childController in children {
             //childViewController が ScrollBarContentableController でないときは例外にする
             let contentController = childController as! ScrollableTabBarContentableController
             items.append(contentController.item)
@@ -90,7 +90,7 @@ public extension ScrollableTabBarController {
     
     fileprivate func viewControllerWithItem(_ item: UIBarButtonItem) -> UIViewController? {
         var viewController: UIViewController?
-        for childController in self.childViewControllers {
+        for childController in children {
             //childViewController が ScrollBarContentableController でないときは例外にする
             let contentController = childController as! ScrollableTabBarContentableController
             if contentController.item == item {
