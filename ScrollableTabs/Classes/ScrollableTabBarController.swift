@@ -23,11 +23,11 @@ public protocol ScrollableTabBarController : ScrollableTabBarDelegate {
     //From UIViewController
     var children: [UIViewController] { get }
     func transition(from fromViewController: UIViewController, to toViewController: UIViewController, duration: TimeInterval, options: UIView.AnimationOptions, animations: (() -> Swift.Void)?, completion: ((Bool) -> Swift.Void)?)
-    func didMove(toParentViewController parent: UIViewController?)
+    func didMove(toParent parent: UIViewController?)
     func addChild(_ childController: UIViewController)
     
     //Overloads
-    func didMove(toParentViewController parent: ScrollableTabBarContentableController?)
+    func didMove(toParent parent: ScrollableTabBarContentableController?)
     func addChild(_ childController: ScrollableTabBarContentableController)
 }
 
@@ -49,7 +49,7 @@ public extension ScrollableTabBarController {
         
         for viewController in viewControllers {
             addChild(viewController)
-            didMove(toParentViewController: viewController)
+            didMove(toParent: viewController)
         }
         
         var items: [UIBarButtonItem] = []
@@ -107,8 +107,8 @@ public extension ScrollableTabBarController {
         addChild(childController)
     }
     
-    func didMove(toParentViewController parent: ScrollableTabBarContentableController?) {
-        didMove(toParentViewController: parent as? UIViewController)
+    func didMove(toParent parent: ScrollableTabBarContentableController?) {
+        didMove(toParent: parent as? UIViewController)
     }
 
 }
